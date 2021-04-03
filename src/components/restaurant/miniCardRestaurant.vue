@@ -1,7 +1,7 @@
 <template>
     <div style="width: 96%; margin-left:2%; margin-right:2%">
-        <div class="circle text-center fechado">
-            <div class="fechado-text">Fechado</div>
+        <div class="circle text-center" :class="restaurante.restaurante_aberto ? ' aberto' : ' fechado'">
+            <div :class="restaurante.restaurante_aberto ? ' aberto-text' : ' fechado-text'">{{restaurante.restaurante_aberto ? ' Aberto Agora' : ' Fechado'}}</div>
         </div>
         <b-card class="mb-2 card-restaurant" @click="redirect()">
             <b-row style="height:100%">

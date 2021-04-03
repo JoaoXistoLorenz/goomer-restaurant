@@ -30,8 +30,11 @@ export default {
             search: ''
         }
     },
-    mounted(){
+    mounted() {
         this.getRestaurants()
+        setInterval(() => {
+            this.getRestaurants()
+        }, 60000);
     },
     watch:{
         'search': 'filter' 
@@ -53,7 +56,7 @@ export default {
         },
         getRestaurants() {
             this.$http.get('/restaurants').then(res => {
-				this.allRestaurants = res.data
+				this.allRestaurants = _.sortBy(res.data, (val) =>{ return val.restaurante_aberto}).reverse()
                 this.restaurants = _.cloneDeep(this.allRestaurants)
 			})
         }

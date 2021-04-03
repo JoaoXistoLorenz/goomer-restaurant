@@ -14,6 +14,7 @@ library.add(faChevronLeft)
 library.add(faChevronDown)
 library.add(faAward)
 
+Vue.use(require('vue-moment'));
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 import './plugins/bootstrap-vue'
