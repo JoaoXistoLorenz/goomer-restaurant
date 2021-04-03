@@ -25,14 +25,18 @@ export default {
     },
     data() {
         return{
+            interval: '',
             allRestaurants: [],
             restaurants: [],
             search: ''
         }
     },
+    beforeDestroy() {
+        clearInterval(this.interval)
+    },
     mounted() {
         this.getRestaurants()
-        setInterval(() => {
+        this.interval = setInterval(() => {
             this.getRestaurants()
         }, 60000);
     },
@@ -56,7 +60,7 @@ export default {
         },
         getRestaurants() {
             this.$http.get('/restaurants').then(res => {
-				this.allRestaurants = _.sortBy(res.data, (val) =>{ return val.restaurante_aberto}).reverse()
+				this.allRestaurants = _.sortBy(res.data, (val) =>{return val.restaurante_aberto}).reverse()
                 this.restaurants = _.cloneDeep(this.allRestaurants)
 			})
         }

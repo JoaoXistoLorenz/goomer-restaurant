@@ -27,15 +27,14 @@
             <div style="width:100%">
                 <b-input-group class="float-left btn-group btn-mob">
                     <b-input-group-prepend>
-                      <b-button variant="light" class="input-number" @click="subtract">-</b-button>
+                        <b-button variant="light" class="input-number" @click="subtract">-</b-button>
                     </b-input-group-prepend>
                         <b-form-input type="text" class="input-number input-center" :value="inputNumber" min="1" disabled></b-form-input>
                     <b-input-group-append>
-                      <b-button variant="light" class="input-number" @click="add">+</b-button>
+                        <b-button variant="light" class="input-number" @click="add">+</b-button>
                     </b-input-group-append>
                 </b-input-group>
                 <b-button variant="light" class="back float-right btn-add">Adicionar <span class="ml-sm-4">R${{result}}</span></b-button>
-
             </div>
         </div>
     </div>

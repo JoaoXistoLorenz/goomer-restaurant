@@ -234,6 +234,7 @@ export default {
         color: #404040;
         opacity: 1;
     }
+    
     .button-colapse:hover {
          width: 100%;
         background-color: #fff;
@@ -248,6 +249,7 @@ export default {
         color: #404040;
         opacity: 1;
     }
+
     .container-img{
         object-fit: cover;
         width:100%;
@@ -256,6 +258,7 @@ export default {
         background: transparent 0% 0% no-repeat padding-box;
         opacity: 1;
     }
+
     .search-input{
         width: 100%;
         height: 40px;
@@ -292,6 +295,7 @@ export default {
         margin-left: auto;
         margin-right: auto;
     }
+
     .text{
         color: #404040c2;
         font-family: normal normal medium 16px Montserrat;
@@ -299,11 +303,13 @@ export default {
         letter-spacing: 0px;
         opacity: 1;
     }
+    
     .back {
         color: #fff;
         background: #009CA3;
         border: #009CA3;
     }
+
     @media screen and (max-width: 992px) {
         .none {
             display: none;
@@ -312,6 +318,7 @@ export default {
             margin-left: 20px !important;
         }
     }
+
     @media screen and (max-width: 574px) {
         .info-restaurant{
             margin-top: 10px
@@ -329,12 +336,14 @@ export default {
             text-align: justify;
         }
     }
+
     @media screen and (max-width: 500px) {
         .col {
             padding-left: 0px !important;
             padding-right: 0px !important;
         }
     }
+
     @media screen and (min-width: 1600px) { 
         .container-img{
             max-height:200px;
