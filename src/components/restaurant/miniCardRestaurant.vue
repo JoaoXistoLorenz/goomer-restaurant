@@ -106,5 +106,26 @@ export default {
             padding-left: 5px;
             height: 130px
         }
+        .restaurant-name { 
+            font-size: 20px;
+        }
+        .restaurant-end { 
+            font-size: 15px;
+        }
+        
+    }
+     @media screen and (min-width: 1800px) {
+        .card-body {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 5px;
+            height: 150px
+        }
+        .circle {
+            height: 60px;
+            width: 60px;
+            right: 0%;
+            font-size: 12px;
+        }
     }
 </style>

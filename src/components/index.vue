@@ -8,7 +8,7 @@
         </div>
         <b-row class="div-container-mini-card">
             <template v-for="rest in restaurants" >
-                <b-col cols="12" sm="12" md="6" lg="6" xl="4" :key="'res' + rest.restaurante_id" class="mt-3 margin-fix">
+                <b-col cols="12" sm="12" md="6" lg="6" xl="4" :key="'res' + rest.restaurante_id" class="m-fix">
                     <MiniCardRestaurant :restaurante="rest"></MiniCardRestaurant>
                 </b-col>
             </template>
@@ -103,6 +103,9 @@ export default {
     .mini-card {
         margin-bottom: 30px;
     }
+    .m-fix {
+        margin-top: 1.5rem !important
+    }
     
     @media screen and (max-width: 1100px) {
         .search-input{
@@ -117,8 +120,8 @@ export default {
     }
 
     @media screen and (min-width: 1600px) {
-        .margin-fix {
-            margin-top: 1.5rem !important
+        .m-fix {
+            margin-top: 2rem !important
         }
     }
 
