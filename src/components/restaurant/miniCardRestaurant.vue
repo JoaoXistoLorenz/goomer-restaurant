@@ -87,6 +87,7 @@ export default {
         margin-top: 15px;
         white-space: nowrap;
         overflow: hidden;
+        height: 20px;
         text-overflow: ellipsis;
     }
     .restaurant-end {
@@ -101,6 +102,7 @@ export default {
     @media screen and (min-width: 1600px) {
         .restaurant-name { 
             font-size: 20px;
+            height: 25px;
         }
         .restaurant-end { 
             font-size: 15px;
