@@ -1,16 +1,14 @@
 <template>
-    <div style="width: 96%; margin-left:2%; margin-right:2%">
+    <div style="width: 96%; margin-left:2%; margin-right:2%;">
         <div class="circle text-center" :class="restaurante.restaurante_aberto ? ' aberto' : ' fechado'">
             <div :class="restaurante.restaurante_aberto ? ' aberto-text' : ' fechado-text'">{{restaurante.restaurante_aberto ? ' Aberto Agora' : ' Fechado'}}</div>
         </div>
         <b-card class="mb-2 card-restaurant" @click="redirect()">
-            <b-row style="height:100%">
-                <b-col fluid="sm" cols="4"  style="height:100%">
+            <b-row  style="height:100%">
+                <b-col fluid="sm" cols="12" style="width:100%">
                     <img class="img" :src="restaurante.restaurante_url" />
-                </b-col>
-                <b-col fluid="sm" cols="8">
-                    <h3 class="restaurant-name mb-2">{{restaurante.restaurante_nome}}</h3>
-                    <p class="restaurant-end">{{restaurante.restaurante_endereco}}</p>
+                    <h3 class="restaurant-name pl-4 mb-2">{{restaurante.restaurante_nome}}</h3>
+                    <p class="restaurant-end pl-4">{{restaurante.restaurante_endereco}}</p>
                 </b-col>
             </b-row>            
         </b-card>
@@ -33,15 +31,15 @@ export default {
 </script>
 <style scoped>
     .card-body {
-        padding-top: 5px;
-        padding-bottom: 5px;
-        padding-left: 5px;
-        height: 100px
+        padding:0px
     }
     .img{
+        max-height:100px;
+        width: 100px;
+        height: auto;
+        padding: 1px;
         object-fit: cover;
-        width: 100%;
-        height: 100%;
+        float: left;
     }
     .circle {
         height: 40px;
@@ -62,6 +60,7 @@ export default {
         box-shadow: 0px 2px 4px #00000029;
         border-radius: 4px;
         opacity: 1;
+        max-height: 110px;
     }
     .card-restaurant:hover {
         cursor: pointer;
@@ -100,32 +99,27 @@ export default {
     }
 
     @media screen and (min-width: 1600px) {
-        .card-body {
-            padding-top: 5px;
-            padding-bottom: 5px;
-            padding-left: 5px;
-            height: 130px
-        }
         .restaurant-name { 
             font-size: 20px;
         }
         .restaurant-end { 
             font-size: 15px;
         }
+        .card-restaurant { 
+            max-height: 120px;
+        }
+        .img{
+            max-height:115px;
+            width: 115px;
+        }
         
     }
      @media screen and (min-width: 1800px) {
-        .card-body {
-            padding-top: 5px;
-            padding-bottom: 5px;
-            padding-left: 5px;
-            height: 150px
-        }
         .circle {
-            height: 60px;
-            width: 60px;
-            right: 0%;
-            font-size: 12px;
+            height: 45px;
+            width: 45px;
+            right: 1%;
+            font-size: 10px;
         }
     }
 </style>
