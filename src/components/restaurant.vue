@@ -1,20 +1,14 @@
 <template>
     <div style="width:100%">
         <b-row class="mt-5" style="width:100%">
-            <b-col cols="12" lg="8" xl="8">
-                <b-row class="ml-5 margin-mobile">
-                    <b-col cols="12" sm="4" md="3" lg="4" xl="3" style="height:100%">
-                        <div>
-                            <b-img class="container-img" fluid :src="restaurant.restaurante_url" />
-                        </div>
-                    </b-col>
-                    <b-col fluid="sm" cols="12" sm="8" md="8" lg="8" xl="8" class="info-restaurant">
-                        <h1 class="h2 title">
-                            {{restaurant.restaurante_nome}}
-                        </h1>
+            <b-col cols="12" sm="12" md="12" lg="8" xl="8" style="width:100%">
+                <b-row class="ml-5 margin-mobile"  style="height:100%;"> <!-- margin-mobile -->
+                    <b-col cols="12" class="p-mob">
+                        <img class="container-img" :src="restaurant.restaurante_url" />
+                        <h3 class="title mb-2">{{restaurant.restaurante_nome}}</h3>
                         <p class="text">{{restaurant.restaurante_descricao}}</p>
-                        <b-button variant="light" class="back" @click="visibleTime = true">Horários de atendimento</b-button>
-                    </b-col>
+                        <b-button variant="light" class="btn-time" @click="visibleTime = true">Horários de atendimento</b-button>
+                    </b-col>        
                 </b-row>
             </b-col>
             <b-col cols="12" lg="4" xl="4" class="none">
@@ -273,14 +267,24 @@ export default {
         opacity: 1;
     }
 
-    .container-img{
+    /* .container-img{
         object-fit: cover;
-        width:100%;
+        width:150%;
         max-height:150px;
         height: auto;
         background: transparent 0% 0% no-repeat padding-box;
         opacity: 1;
+    } */
+    .container-img{
+        max-height:150px;
+        width: 150px;
+        height: auto;
+        padding: 1px;
+        object-fit: cover;
+        float: left;
+        margin-right: 15px;
     }
+    
 
     .search-input{
         width: 100%;
@@ -314,9 +318,10 @@ export default {
         color: #404040c2;
         font-family: normal normal medium 24px Montserrat;
         font-size: 24px;
-        height: 29px;
-        margin-left: auto;
-        margin-right: auto;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+         letter-spacing: 0px;
     }
 
     .text{
@@ -325,6 +330,9 @@ export default {
         font-size: 16px;
         letter-spacing: 0px;
         opacity: 1;
+        height: 42px;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     
     .back {
@@ -332,6 +340,13 @@ export default {
         background: #009CA3;
         border: #009CA3;
     }
+
+    .btn-time {
+        color: #fff;
+        background: #009CA3;
+        border: #009CA3;
+    }
+
 
 
     @media screen and (max-width: 992px) {
@@ -346,9 +361,6 @@ export default {
     @media screen and (max-width: 574px) {
         .info-restaurant{
             margin-top: 10px
-        }
-        .container-img{
-            max-height:300px;
         }
         .none-input {
             display: none;
@@ -366,11 +378,36 @@ export default {
             padding-left: 0px !important;
             padding-right: 0px !important;
         }
+        .p-mob {
+            padding-left: 0px !important;
+        }
+        .container-img {
+            width: 100%;
+            height: auto;
+            margin: 0px 0px 0px 5px;
+        }
+        .title {
+            display: block;
+            width: 100%;
+            padding-top: 10px;
+            margin: 0px 0px 0px 5px;
+        }
+        .text {
+            display: block;
+            width: 100%;
+            padding-top: 5px;
+            height: auto;
+        }
+        
     }
 
     @media screen and (min-width: 1600px) { 
         .container-img{
             max-height:200px;
+            width: 200px;
+        }
+        .text {
+            width: 60%;
         }
     }
 </style>

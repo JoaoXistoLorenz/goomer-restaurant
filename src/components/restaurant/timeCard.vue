@@ -4,7 +4,7 @@
             <h3 class="title text-center">Este restaurante não possui horário de atendimento!</h3>
         </template>
         <template v-else>
-            <b-row>
+            <b-row >
                 <b-col v-for="time in times" cols="12" :key="''+time[0].horario_semana">
                     <b-table :key="'time'" small  striped :items="time" 
                         :fields="[ 
