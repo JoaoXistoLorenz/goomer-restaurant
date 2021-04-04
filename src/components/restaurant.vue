@@ -13,6 +13,7 @@
                             {{restaurant.restaurante_nome}}
                         </h1>
                         <p class="text">{{restaurant.restaurante_descricao}}</p>
+                        <b-button variant="light" class="back" @click="visibleTime = true">Horários de atendimento</b-button>
                     </b-col>
                 </b-row>
             </b-col>
@@ -111,6 +112,15 @@
                     </b-modal>
                 </template>
             </div>  
+            <div>
+                <template v-if="visibleTime">
+                    <b-modal id="modal-times" size="lg" :visible="visibleTime" centered hide-footer no-close-on-backdrop @hide="visibleTime =  false">
+                      <template>
+                          <TimeCard :times="dates"></TimeCard>
+                      </template>
+                    </b-modal>
+                </template>
+            </div>  
         </b-row>
     </div>
 </template>
@@ -118,14 +128,18 @@
 import _ from 'lodash'
 import MiniCardRestaurant from  './product/miniCardProduct.vue'
 import BigCardProduct from  './product/BigCardPruduct'
+import TimeCard from './restaurant/timeCard'
 export default {
     components:{
         MiniCardRestaurant,
-        BigCardProduct
+        BigCardProduct,
+        TimeCard
     },
     data() {
         return{
             id: 0,
+            dates: false,
+            visibleTime: false,
             visibleLunch: true,
             visibleDrinks: false,
             visibleDessert: false,
@@ -160,6 +174,15 @@ export default {
             this.$http.get(`/restaurant/${this.id}`).then(res => {
 				this.restaurant = res.data
 			})
+            
+            this.$http.get(`/times/${this.id}`).then(res => {
+                if (res.data.length > 0) {
+				    this.dates = _.groupBy(res.data, (date) => {
+                        return date.horario_semana
+                    })
+                }
+			})
+            
             this.$http.get(`/restaurant/products/${this.id}`).then(res => {
 				this.allProducts = res.data
 				this.products = _.cloneDeep(this.allProducts)
@@ -216,7 +239,7 @@ export default {
             this.product = product
             this.visible = true
         }
-    }
+    },
 }
 </script>
 <style scoped>
@@ -309,6 +332,7 @@ export default {
         background: #009CA3;
         border: #009CA3;
     }
+
 
     @media screen and (max-width: 992px) {
         .none {
