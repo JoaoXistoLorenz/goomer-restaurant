@@ -1,19 +1,25 @@
 # front
 
+## Pode ser necessário baixar o Vue CLI
+```
+npm install -g @vue/cli
+```
+
 ## Project setup
 ```
 npm install
 ```
 
-### Run
+## Run
 ```
 npm run serve
 ```
-### IMPORTANTE
+
+## IMPORTANTE
 ```
     O Front deve rodar após a api, senão acaba operando na porta 8080 e vai ocorrer conflito.
 ```
-#### Sobre
+## Sobre
 
 1. O arquivo index.vue refere-se à Lista dos Restaurantes.
 2. O arquivo restaurant.vue refere-se à página individual do restaurante.
